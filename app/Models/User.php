@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use App\Notifications\Auth\ResetPasswordNotification;
-use App\Notifications\Auth\VerifyEmailNotification;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasUuids;
     use HasFactory;
@@ -68,13 +66,5 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token): void
     {
         $this->notify(new ResetPasswordNotification($token));
-    }
-
-    /**
-     * Send the email verification notification.
-     */
-    public function sendEmailVerificationNotification(): void
-    {
-        $this->notify(new VerifyEmailNotification());
     }
 }
