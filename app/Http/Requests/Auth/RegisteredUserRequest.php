@@ -32,16 +32,4 @@ class RegisteredUserRequest extends FormRequest
             ],
         ];
     }
-
-    /**
-     * Get custom attributes for validator errors.
-     */
-    public function attributes(): array
-    {
-        return [
-            'name' => trans('Name'),
-            'email' => trans('Email'),
-            'password' => trans('Password'),
-        ];
-    }
 }

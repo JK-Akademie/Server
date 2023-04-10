@@ -27,16 +27,4 @@ class NewPasswordRequest extends FormRequest
             ],
         ];
     }
-
-    /**
-     * Get custom attributes for validator errors.
-     */
-    public function attributes(): array
-    {
-        return [
-            'token' => trans('Token'),
-            'email' => trans('Email'),
-            'password' => trans('Password'),
-        ];
-    }
 }

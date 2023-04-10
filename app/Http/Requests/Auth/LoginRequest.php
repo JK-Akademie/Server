@@ -30,17 +30,6 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Get custom attributes for validator errors.
-     */
-    public function attributes(): array
-    {
-        return [
-            'email' => trans('Email'),
-            'password' => trans('Password'),
-        ];
-    }
-
-    /**
      * Attempt to authenticate the request's credentials.
      */
     public function authenticate(): void
