@@ -27,7 +27,7 @@ class NewPasswordController extends Controller
             ]);
         }
 
-        return response()->json(['status' => trans($status)]);
+        return $this->okResponse(trans($status));
     }
 
     /**
